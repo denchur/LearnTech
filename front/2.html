@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" name="login" onsubmit="sendJsonRequest(event)">
+        <input type="email" name="email" id="email">
+        <input type="password" name="pass" id="pass">
+        <input type="submit" value="post" id="submit">
+    </form>
+
+    <script>
+        function sendJsonRequest(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Get the form data
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('pass').value;
+            var token;
+            // Create the request body
+            const requestBody = {
+                email: email,
+                password: password
+            };
+
+            // Send the request
+            fetch('http://127.0.0.1:8000/api/auth/token/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestBody)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response data
+                token = data['auth_token']
+                console.log(token);
+            })
+            .catch(error => {
+                // Handle any errors
+                console.error(error);
+            });
+        }
+    </script>
+</body>
+</html>

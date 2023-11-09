@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Главное меню</title>
+</head>
+<body id="my_body">
+        <div class="main-panel">
+            <div class="block" id="orders">
+                <h2>Заказы</h2>
+                <div class="separator"></div>
+                <div class="orders-group">
+                    <span id="ordersGet" class="all active">Доступно</span>
+                    <span id="ordersMy" class="actived">Ожидающие</span>
+                    <span id="ordersMyReady" class="complete">Выполненные</span>
+                </div>
+                <div class="order-list" id="order-group-all">
+                </div>
+            </div>
+            <!-- === Профиль курьера === -->
+            <div class="block" id="lk" onlo>
+                <h2>Профиль</h2>
+                <div class="separator"></div>
+                <div class="lk-main">
+                    <div class="lk-name">
+                        <h4>Имя:</h4>
+                        <span class="name" id="profilName"></span>
+                    </div>
+                    <div class="lk-last_name">
+                        <h4>Фамилия:</h4>
+                        <span class="last_name" id="profilLastName"></span>
+                    </div>
+                    <div class="lk-last_name">
+                        <h4>Город работы:</h4>
+                        <span class="last_name" id="workCity"></span>
+                    </div>
+                    <div class="lk-number">
+                        <h4>Телефон:</h4>
+                        <span class="number" id="profilNumber"></span>
+                    </div>
+                    <div class="lk-number">
+                        <h4>Всего заказов:</h4>
+                        <span class="number" id="profilGetedOrders"></span>
+                    </div>
+                    <div class="lk-number">
+                        <h4>Выполнено заказов:</h4>
+                        <span class="number" id="profilReadyOrders"></span>
+                    </div>
+                    <div class="lk-number">
+                        <h4>Отклонено заказов:</h4>
+                        <span class="number" id="profilRefuceOrders"></span>
+                    </div>
+                    <div class="support">
+                        <h3>Тех.поддержка</h3>
+                        <button class="call">Связаться</button>
+                    </div>
+                </div>
+            </div>
+            <!-- === Карты === -->
+            <div class="block" id="maps">
+                <h2>Карта</h2>
+                <div class="separator"></div>
+                <div id="map" class="map"></div>
+            </div>
+        </div>
+        <nav class="bottom-panel">
+            <ul class="menu-links">
+                <li class="nav-link" id="link_order">
+                    <a href="#orders">
+                        <img src="img/notepad-regular-24.png" alt="order">
+                        <span class="text nav-text">Заказы</span>
+                    </a>
+                </li>
+                <li class="nav-link" id="link_lk">
+                    <a href="#lk">
+                        <img src="img/user-regular-24.png" alt="lk">
+                        <span class="text nav-text" onclick="getMyProfil()">Профиль</span>
+                    </a>
+                </li>
+                <li class="nav-link" id="link_maps">
+                    <a href="#maps" onclick="activateMaps()">
+                        <img src="img/map-alt-regular-24.png" alt="maps">
+                        <span class="text nav-text" >Карта</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    <!-- === Ajax === -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- === Яндекс.Карты === -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=5ada6a4b-e884-46f1-b475-3a9830d3a677&lang=ru_RU"></script>
+    <script src="apiscript.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
